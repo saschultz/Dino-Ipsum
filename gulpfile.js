@@ -38,10 +38,10 @@ gulp.task('concatInterface', function(){
 });
 
 gulp.task('jsBrowserify', ['concatInterface'], function(){
-    return browserify({ entries: ['./tmp/allConcat.js'] })
-      .bundle()
-      .pipe(source('app.js'))
-      .pipe(gulp.dest('./build/js'));
+  return browserify({ entries: ['./tmp/allConcat.js'] })
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(gulp.dest('./build/js'));
 });
 
 gulp.task('minifyScripts', ['jsBrowserify'], function(){
@@ -79,7 +79,7 @@ gulp.task('build', ['clean'], function(){
   gulp.start('cssBuild');
 });
 
-gulp.task('serve', ['build'], function(){
+gulp.task('serve', function(){
   browserSync.init({
     server: {
       baseDir: "./",
